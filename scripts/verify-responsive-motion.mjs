@@ -18,25 +18,39 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
       await page.waitForTimeout(300)
       const after = await button.boundingBox()
       assert.ok(Math.abs(before.y - after.y) < .1 && Math.abs(before.width - after.width) < .1, 'download stays still on hover')
-      assert.equal(await page.locator('.pin-spacer').count(), 2, 'same two pinned animations at every size')
+      assert.equal(await page.locator('.pin-spacer').count(), width > 900 ? 2 : 1, 'mobile Mac has no empty pin spacer')
       const scroll = async y => {
         await page.evaluate(y => window.scrollTo({ top: y, behavior: 'instant' }), y)
         await page.waitForTimeout(1000)
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no sideways overflow')
       }
       const start = selector => page.locator(selector).evaluate(e => e.getBoundingClientRect().top + scrollY)
-      const macStart = await start('.pin-spacer:has(> .mac-zoom)')
       const scale = () => page.locator('.mac-zoom-product').evaluate(e => new DOMMatrix(getComputedStyle(e).transform).a)
-      await scroll(macStart)
-      const initial = await scale()
-      const macDistance = await page.locator('.pin-spacer:has(> .mac-zoom)').evaluate(e => e.clientHeight - e.querySelector('.mac-zoom').clientHeight)
-      if (width <= 900) {
-        assert.ok(await page.locator('.mac-zoom').evaluate(e => e.clientHeight) <= width * .86, 'mobile stage fits laptop')
-        assert.ok(macDistance < height, 'mobile zoom has a shorter scroll runway')
+      if (width > 900) {
+        const macStart = await start('.pin-spacer:has(> .mac-zoom)')
+        const macDistance = await page.locator('.pin-spacer:has(> .mac-zoom)').evaluate(e => e.clientHeight - e.querySelector('.mac-zoom').clientHeight)
+        await scroll(macStart)
+        const initial = await scale()
+        await scroll(macStart + macDistance * .75)
+        assert.ok(await scale() > initial + .15, 'desktop zoom preserved')
+        assert.ok(Math.abs(await page.locator('.mac-zoom').evaluate(e => e.getBoundingClientRect().top)) < 2, 'desktop Mac pins')
+      } else {
+        assert.equal(await page.locator('.pin-spacer:has(> .mac-zoom)').count(), 0)
+        const bounds = await page.locator('.mac-zoom').evaluate(e => ({top:e.getBoundingClientRect().top+scrollY,height:e.clientHeight}))
+        assert.ok(bounds.height <= width * .68, 'mobile stage fits the image')
+        const first = Math.max(0, bounds.top - height * .65)
+        const last = bounds.top + bounds.height - height * .25
+        let previous = 0
+        for (const progress of [0, .25, .5, .75, 1, 1.2]) {
+          await scroll(first + (last - first) * progress)
+          const current = await scale()
+          assert.ok(current >= previous - .002, 'mobile never zooms back out on forward scroll')
+          previous = current
+        }
+        assert.ok(Math.abs(previous - 1.12) < .01, 'mobile holds its final zoom')
+        const gap = await page.locator('.section-transition').evaluate(e => e.clientHeight)
+        assert.ok(gap <= 24, 'compact handoff to benefits')
       }
-      await scroll(macStart + macDistance * .75)
-      assert.ok(await scale() > initial + .15, 'same zoom on desktop and mobile')
-      assert.ok(Math.abs(await page.locator('.mac-zoom').evaluate(e => e.getBoundingClientRect().top)) < 2, 'Mac pins')
       await page.screenshot({ path: `artifacts/${name}-${width}x${height}-zoom.png` })
       const benefitsStart = await start('.pin-spacer:has(> .sticky)')
       await scroll(benefitsStart + height * 5 * .22)

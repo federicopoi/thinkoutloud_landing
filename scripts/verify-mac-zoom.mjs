@@ -27,7 +27,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   await page.emulateMedia({reducedMotion:'no-preference'})
   await page.setViewportSize({width:390,height:844})
   await page.waitForTimeout(500)
-  assert.equal(await page.locator('.pin-spacer').count(),2,'mobile retains both scroll animations')
+  assert.equal(await page.locator('.pin-spacer').count(),1,'mobile retains benefits pin without a Mac spacer')
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true)
   console.log(`${name}: zoom, centering, reversal, responsive and reduced motion passed`)
  }finally{await browser.close()}

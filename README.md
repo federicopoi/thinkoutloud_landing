@@ -11,7 +11,7 @@ npm ci
 npm run dev -- --port 5174
 ```
 
-The page includes the MacBook and Notes demonstration, pinned scroll animations, the product film, and an app download. The GitHub button opens the native app’s source repository in a new tab.
+The page includes the MacBook and Notes demonstration, scroll animations, the product film, and an app download. Desktop pins the Mac zoom; mobile uses a gentle forward zoom in normal page flow, with no extra spacer. The GitHub button opens the native app’s source repository in a new tab.
 
 ## Deploy
 

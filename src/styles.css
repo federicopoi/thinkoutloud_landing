@@ -70,15 +70,16 @@ h2{font-size:clamp(38px,4vw,58px);line-height:1.12;letter-spacing:-2.5px;font-we
  .is-pinned .benefit-detail a{font-size:13px;margin-top:10px}
 }
 
-/* Fit the mobile camera stage to the laptop instead of a tall phone screen. */
+/* Let the mobile Mac preview flow naturally without a pin spacer. */
 @media(max-width:900px){
- .mac-zoom.is-zooming{height:min(100svh,85vw)}
- .section-transition{height:40px}
+ .mac-zoom-stage{padding:0}
+ .mac-zoom-product{transform-origin:50% 50%}
+ .section-transition{height:24px}
  .closing-section{padding-block:52px}
 }
 @media(max-width:480px){
  .hero{padding-top:20px;padding-bottom:12px}
- .section-transition{height:28px}
+ .section-transition{height:16px}
  .closing-section{padding-block:40px}
 }
 

@@ -11,11 +11,11 @@ export function MacZoom() {
     const section = root.current
     const product = section.querySelector('.mac-zoom-product')
     const media = gsap.matchMedia()
-    media.add('(prefers-reduced-motion: no-preference)', () => {
+    media.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
       section.classList.add('is-zooming')
       const animation = gsap.timeline({
         scrollTrigger: {
-          trigger: section, start: 'top top', end: () => `+=${window.innerWidth <= 900 ? section.clientHeight * .9 : window.innerHeight * 1.2}`,
+          trigger: section, start: 'top top', end: () => `+=${window.innerHeight * 1.2}`,
           pin: true, pinSpacing: true, scrub: .65, invalidateOnRefresh: true,
         },
       })
@@ -26,6 +26,20 @@ export function MacZoom() {
         animation.kill()
         gsap.set(product, { clearProps: 'transform' })
         section.classList.remove('is-zooming')
+      }
+    }, root)
+    media.add('(max-width: 900px) and (prefers-reduced-motion: no-preference)', () => {
+      const animation = gsap.fromTo(product, { scale: 1 }, {
+        scale: 1.12, ease: 'none',
+        scrollTrigger: {
+          trigger: section, start: 'top 65%', end: 'bottom 25%',
+          scrub: true, invalidateOnRefresh: true,
+        },
+      })
+      return () => {
+        animation.scrollTrigger?.kill(true)
+        animation.kill()
+        gsap.set(product, { clearProps: 'transform' })
       }
     }, root)
     return () => media.revert()

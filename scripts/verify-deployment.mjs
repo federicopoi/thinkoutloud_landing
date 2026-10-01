@@ -14,7 +14,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
       await page.goto(base, { waitUntil: 'networkidle' })
       assert.equal(await page.locator('h1').textContent(), 'Your thoughts.Out loud.')
       for (const image of await page.locator('img').all()) assert.ok(await image.evaluate(e => e.complete && e.naturalWidth > 0), 'images loaded under Pages path')
-      assert.equal(await page.locator('.pin-spacer').count(), 2, 'both scroll effects initialized')
+      assert.equal(await page.locator('.pin-spacer').count(), width > 900 ? 2 : 1, 'responsive scroll effects initialized')
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'no horizontal overflow')
       const github = page.getByRole('link', { name: 'View on GitHub' })
       assert.equal(await github.getAttribute('href'), 'https://github.com/federicopoi/thinkoutloud')
