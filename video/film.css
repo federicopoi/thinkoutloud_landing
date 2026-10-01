@@ -1,0 +1,15 @@
+.film{background:#fff;font-family:'DM Sans Variable',Arial,sans-serif;color:#111;overflow:hidden;text-align:left}
+.film-intro{justify-content:center;align-items:center;padding-bottom:80px}
+.film-word-mask{font-family:Georgia,'Times New Roman',serif;font-size:168px;letter-spacing:-8px;line-height:1.13;overflow:hidden;padding-inline:30px}
+.film-italic{font-style:italic;font-size:187px;letter-spacing:-10px}
+.film-opening-logo{position:absolute;bottom:115px;display:flex;align-items:center;gap:19px;font-size:34px;letter-spacing:-1px}
+.film-opening-logo svg{width:58px;height:58px}
+.film-mac{position:absolute;width:1480px;left:220px;top:44px;transform-origin:50% 38%;text-align:left}
+.film-mac .demo-notes{font-family:'DM Sans Variable',Arial,sans-serif}.film-mac .demo-paste-key{animation:none}
+.film-shortcut{position:absolute;bottom:74px;left:0;right:0;display:flex;justify-content:center;gap:13px}
+.film-shortcut kbd{font-family:inherit;background:#fff;border:1px solid #bbb;border-radius:12px;padding:13px 20px;font-size:30px;box-shadow:0 3px 0 #ddd}
+.film-outro{background:#090909;color:#fff;justify-content:center;align-items:center}
+.film-end-headline{font-family:Georgia,'Times New Roman',serif;font-size:116px;letter-spacing:-5px;line-height:1.1}
+.film-end-note{font-size:28px;color:#888;margin-top:28px}
+.film-end-brand{display:flex;align-items:center;gap:28px;margin-top:125px;font-size:54px;letter-spacing:-1.5px}
+.film-end-brand svg{width:92px;height:92px}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+artifacts/
+.DS_Store
+.env
+.env.*
+*.log
+
+# Keep standalone soundtrack files local; publish the finished film.
+public/audio/
