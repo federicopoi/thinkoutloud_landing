@@ -26,7 +26,7 @@ export default function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header shell">
         <a className="brand" href="#" aria-label="Think Out Loud home"><Logo /><span>Think Out Loud</span></a>
-        <nav aria-label="Main navigation"><a href="#free-and-local">Why Think Out Loud</a><button className="button compact github-link" type="button"><GitHubIcon /><span>View on GitHub</span></button></nav>
+        <nav aria-label="Main navigation"><a href="#free-and-local">Why Think Out Loud</a><a className="button compact github-link" href="https://github.com/federicopoi/thinkoutloud" target="_blank" rel="noopener noreferrer"><GitHubIcon /><span>View on GitHub</span></a></nav>
       </header>
 
       <main id="main">
