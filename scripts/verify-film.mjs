@@ -1,6 +1,5 @@
 import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
-import { durationInFrames, fps } from '../video/timing.mjs'
 import { execFileSync } from 'node:child_process'
 const probe=JSON.parse(execFileSync('ffprobe',['-v','error','-show_streams','-of','json','public/videos/think-out-loud-film.mp4'],{encoding:'utf8'}))
 const audio=probe.streams.find(s=>s.codec_type==='audio')
@@ -17,7 +16,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]) {
   await page.getByRole('button',{name:'See how it works'}).click()
   await page.waitForFunction(()=>document.querySelector('video')?.readyState>=2)
   const metadata=await page.locator('video').evaluate(v=>({duration:v.duration,width:v.videoWidth,height:v.videoHeight}))
-  assert.ok(Math.abs(metadata.duration-durationInFrames/fps)<.05, 'AAC padding must stay below 50ms')
+  assert.ok(Math.abs(metadata.duration-18)<.05, 'AAC padding must stay below 50ms')
   assert.equal(metadata.width,1920)
   assert.equal(metadata.height,1080)
   await page.waitForFunction(()=>document.querySelector('video').currentTime>.1)
@@ -36,6 +35,6 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]) {
   await page.getByRole('button',{name:'Close film'}).click()
   assert.equal(await page.locator('video').count(),0)
   assert.deepEqual(errors,[])
-  console.log(`${name}: H.264 playback, 1080p film metadata, Escape, close and mobile player passed`)
+  console.log(`${name}: H.264 playback, 1080p/18s metadata, Escape, close and mobile player passed`)
  }finally{await browser.close()}
 }

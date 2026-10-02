@@ -1,15 +1,15 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { timelineAt, durationInFrames, fps, scenes } from './timing.mjs'
+import { timelineAt, durationInFrames, fps } from './timing.mjs'
 test('film demonstrates recording, transcription, copy then a complete paste',()=>{
- assert.equal(durationInFrames / fps,24)
- assert.equal(timelineAt(scenes.record).state,'recording')
- assert.equal(timelineAt(scenes.stop+15).state,'transcribing')
- assert.equal(timelineAt(scenes.copied+10).state,'copied')
- assert.equal(timelineAt(scenes.copied+10).pasted,false)
- assert.equal(timelineAt(scenes.pasted+5).pasted,true)
- assert.equal(timelineAt(scenes.record).elapsed,0)
- assert.equal(timelineAt(scenes.record+90).elapsed,3)
+ assert.equal(durationInFrames / fps,18)
+ assert.equal(timelineAt(150).state,'recording')
+ assert.equal(timelineAt(315).state,'transcribing')
+ assert.equal(timelineAt(360).state,'copied')
+ assert.equal(timelineAt(360).pasted,false)
+ assert.equal(timelineAt(390).pasted,true)
+ assert.equal(timelineAt(150).elapsed,0)
+ assert.equal(timelineAt(240).elapsed,3)
 })
 test('re-rendering the same frame produces exactly the same waveform',()=>{
  assert.deepEqual(timelineAt(200),timelineAt(200))

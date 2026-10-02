@@ -41,9 +41,9 @@ Browser checks use Playwright. Install its browsers with `npx playwright install
 
 ## Film and assets
 
-The 24-second film is authored with Remotion in `video/Film.jsx`. Use `npm run video:studio` to preview it or `npm run video:render` to export a new MP4.
+The 18-second film is authored with Remotion in `video/Film.jsx`. Use `npm run video:studio` to preview it or `npm run video:render` to export a new MP4.
 
-To re-render with music, place your licensed 24-second audio excerpt at `public/audio/soft-minimal-film-v2.wav`. Raw soundtrack files are kept out of this repository; the exported film is included. The narrator begins at 0.12 seconds. Voice cues are in `video/narration.json`; `video/make-narration.py` generates `public/audio/film-voice-v2.wav` with edge-tts and ffmpeg. Install edge-tts in a local Python environment to regenerate the narration.
+To re-render with music, place your licensed audio excerpt at `public/audio/soft-minimal-film.wav`. Raw soundtrack files are kept out of this repository; the exported film is included.
 
 The film uses **Soft Minimal by PaulYudin**, downloaded from [Pixabay](https://pixabay.com/music/deep-house-soft-minimal-113441/). Its license certificate is in `video/licenses/soft-minimal-pixabay-license.txt`. This is licensed stock music, not public-domain audio; keep the certificate for possible Content ID claims.
 

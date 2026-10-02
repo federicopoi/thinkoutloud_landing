@@ -1,29 +1,15 @@
 .film{background:#fff;font-family:'DM Sans Variable',Arial,sans-serif;color:#111;overflow:hidden;text-align:left}
-.film-intro{justify-content:center;align-items:center;padding-top:90px}
-.film-letter-line{display:flex;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-size:164px;letter-spacing:-8px;line-height:1.17;white-space:nowrap;perspective:1000px}
-.film-letter-mask{display:inline-block;overflow:hidden;padding:4px 5px 12px;margin:0 -5px}
-.film-letter-mask>span{display:inline-block;transform-origin:50% 100%;will-change:transform,opacity}
-.film-italic{font-style:italic;font-size:186px;letter-spacing:-10px}
-.film-symbol svg{display:block;width:100%;height:100%}
-.film-symbol svg rect{transform-box:fill-box;transform-origin:center}
-.film-symbol svg rect:nth-child(1){transform:scaleY(var(--bar-one))}
-.film-symbol svg rect:nth-child(2){transform:scaleY(var(--bar-two))}
-.film-symbol svg rect:nth-child(3){transform:scaleY(var(--mic))}
-.film-symbol svg rect:nth-child(4),.film-symbol svg rect:nth-child(5){opacity:var(--caps)}
-.film-symbol svg rect:nth-child(6){transform-origin:left center;transform:scaleX(var(--cursor))}
-.film-opening-symbol{position:absolute;top:160px;width:124px;height:124px}
+.film-intro{justify-content:center;align-items:center;padding-bottom:80px}
+.film-word-mask{font-family:Georgia,'Times New Roman',serif;font-size:168px;letter-spacing:-8px;line-height:1.13;overflow:hidden;padding-inline:30px}
+.film-italic{font-style:italic;font-size:187px;letter-spacing:-10px}
+.film-opening-logo{position:absolute;bottom:115px;display:flex;align-items:center;gap:19px;font-size:34px;letter-spacing:-1px}
+.film-opening-logo svg{width:58px;height:58px}
 .film-mac{position:absolute;width:1480px;left:220px;top:44px;transform-origin:50% 38%;text-align:left}
-.film-mac .demo-paste-key{animation:none}
+.film-mac .demo-notes{font-family:'DM Sans Variable',Arial,sans-serif}.film-mac .demo-paste-key{animation:none}
 .film-shortcut{position:absolute;bottom:74px;left:0;right:0;display:flex;justify-content:center;gap:13px}
 .film-shortcut kbd{font-family:inherit;background:#fff;border:1px solid #bbb;border-radius:12px;padding:13px 20px;font-size:30px;box-shadow:0 3px 0 #ddd}
-.film-benefit{background:#fff;justify-content:center;align-items:center;color:#111}
-.film-benefit.is-dark{background:#090909;color:#fff}
-.film-benefit .film-letter-line{font-size:250px;letter-spacing:-11px}
-.film-benefit.is-dark .film-letter-line{font-size:222px;letter-spacing:-10px}
-.film-offline-note{position:absolute;bottom:215px;font-size:30px;color:#777;letter-spacing:-.5px}
-.film-outro{background:#090909;color:#fff;justify-content:center;align-items:center;padding-top:55px}
-.film-end-symbol{width:126px;height:126px;margin-bottom:48px}
-.film-brand-type{font-size:145px;letter-spacing:-7px}
-.film-cta{display:flex;align-items:center;justify-content:center;gap:22px;font-size:43px;margin-top:62px;letter-spacing:-1px;border-bottom:1px solid #777;padding-bottom:16px}
-.film-cta svg{width:36px;height:36px}
-.film-cta-arrow{font-size:44px;margin-left:18px}
+.film-outro{background:#090909;color:#fff;justify-content:center;align-items:center}
+.film-end-headline{font-family:Georgia,'Times New Roman',serif;font-size:116px;letter-spacing:-5px;line-height:1.1}
+.film-end-note{font-size:28px;color:#888;margin-top:28px}
+.film-end-brand{display:flex;align-items:center;gap:28px;margin-top:125px;font-size:54px;letter-spacing:-1.5px}
+.film-end-brand svg{width:92px;height:92px}
