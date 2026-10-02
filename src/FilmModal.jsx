@@ -19,6 +19,6 @@ export function FilmModal({ onClose }) {
  }, [])
  return <dialog className="film-dialog" ref={dialog} data-lenis-prevent aria-label="Think Out Loud product film" onCancel={event => { event.preventDefault(); onClose() }} onClick={event => { if(event.target === dialog.current) onClose() }}>
   <button className="film-close" onClick={onClose} aria-label="Close film"><X size={24} /></button>
-  <video ref={video} controls playsInline preload="metadata" poster={assetUrl('videos/think-out-loud-poster.png')} aria-label="18-second film showing recording, local transcription and pasting into Notes"><source src={assetUrl('videos/think-out-loud-film.mp4?v=soft-minimal-1')} type="video/mp4" />Your browser cannot play this video. <a href={assetUrl('videos/think-out-loud-film.mp4')}>Download the film</a>.</video>
+  <video ref={video} controls playsInline preload="metadata" poster={assetUrl('videos/think-out-loud-poster.png')} aria-label="24-second film showing recording, local transcription and pasting into Notes"><source src={assetUrl('videos/think-out-loud-film.mp4?v=kinetic-v2')} type="video/mp4" />Your browser cannot play this video. <a href={assetUrl('videos/think-out-loud-film.mp4')}>Download the film</a>.</video>
  </dialog>
 }
