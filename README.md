@@ -41,7 +41,7 @@ Browser checks use Playwright. Install its browsers with `npx playwright install
 
 ## Film and assets
 
-The 18-second film is authored with Remotion in `video/Film.jsx`. Use `npm run video:studio` to preview it or `npm run video:render` to export a new MP4.
+The product film (`public/videos/think-out-loud-film.mp4`) is authored with HeyGen HyperFrames; its source lives outside this repository. The earlier Remotion film remains in `video/Film.jsx` (`npm run video:studio`, `npm run video:render`).
 
 To re-render with music, place your licensed audio excerpt at `public/audio/soft-minimal-film.wav`. Raw soundtrack files are kept out of this repository; the exported film is included.
 
