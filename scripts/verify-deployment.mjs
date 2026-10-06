@@ -32,7 +32,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
         page.waitForEvent('download'),
         page.locator('.hero .download').click(),
       ])
-      assert.equal(download.suggestedFilename(), 'Think-Out-Loud.zip')
+      assert.equal(download.suggestedFilename(), 'Think-Out-Loud.dmg')
       assert.equal(await download.failure(), null)
       assert.deepEqual(failedAssets, [])
       assert.deepEqual(errors, [])

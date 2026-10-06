@@ -47,4 +47,4 @@ To re-render with music, place your licensed audio excerpt at `public/audio/soft
 
 The film uses **Soft Minimal by PaulYudin**, downloaded from [Pixabay](https://pixabay.com/music/deep-house-soft-minimal-113441/). Its license certificate is in `video/licenses/soft-minimal-pixabay-license.txt`. This is licensed stock music, not public-domain audio; keep the certificate for possible Content ID claims.
 
-The MacBook and wallpaper images were generated for this project. The download contains a locally signed Apple Silicon app, without Apple notarization. Updating that ZIP requires a fresh build from the native app repository.
+The MacBook and wallpaper images were generated for this project. The download contains a locally signed Apple Silicon app, without Apple notarization. Updating the DMG requires a fresh build and `bash scripts/package-dmg.sh` from the native app repository.

@@ -24,8 +24,8 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     await page.getByText('Copied', { exact: true }).waitFor()
     assert.equal(await page.getByRole('button', { name: 'Stop dictation preview' }).count(), 0)
     const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('link', { name: 'Download for Mac' }).last().click()])
-    assert.equal(download.suggestedFilename(), 'Think-Out-Loud.zip')
-    await download.saveAs(`artifacts/${name}-download.zip`)
+    assert.equal(download.suggestedFilename(), 'Think-Out-Loud.dmg')
+    await download.saveAs(`artifacts/${name}-download.dmg`)
 
     await page.getByRole('link', { name: 'Why Think Out Loud', exact: true }).click()
     await page.waitForFunction(() => location.hash === '#free-and-local')

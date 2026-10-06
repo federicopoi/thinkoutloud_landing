@@ -7,11 +7,11 @@ import { MacZoom } from './MacZoom'
 import { FilmModal } from './FilmModal'
 import { BenefitsScroll } from './BenefitsScroll'
 
-const download = assetUrl('downloads/Think-Out-Loud.zip')
+const download = assetUrl('downloads/Think-Out-Loud.dmg')
 const ease = [0.22, 1, 0.36, 1]
 
 function DownloadButton({ compact = false }) {
-  return <a className={`button download ${compact ? 'compact' : ''}`} href={download} download="Think-Out-Loud.zip"><AppleIcon /><span>Download for Mac</span></a>
+  return <a className={`button download ${compact ? 'compact' : ''}`} href={download} download="Think-Out-Loud.dmg"><AppleIcon /><span>Download for Mac</span></a>
 }
 
 function Reveal({ children, delay = 0, className = '' }) {
